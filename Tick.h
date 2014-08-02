@@ -1,21 +1,21 @@
 #ifndef TICK_H
 #define TICK_H
 /*-------------------------------------------------------------*/
-/*				Includes and dependencies						*/
+/*		Includes and dependencies			*/
 /*-------------------------------------------------------------*/
 #include "TickPort.h"
 /*-------------------------------------------------------------*/
-/*				Macros and definitions							*/
+/*		Macros and definitions				*/
 /*-------------------------------------------------------------*/
-#define TICK_SECOND				((unsigned long long)TICKS_PER_SECOND)
-#define TICK_MINUTE				((unsigned long long)TICKS_PER_SECOND*60ull)
-#define TICK_HOUR				((unsigned long long)TICKS_PER_SECOND*3600ull)
+#define TICK_SECOND	((unsigned long long)TICKS_PER_SECOND)
+#define TICK_MINUTE	((unsigned long long)TICKS_PER_SECOND*60ull)
+#define TICK_HOUR	((unsigned long long)TICKS_PER_SECOND*3600ull)
 /*-------------------------------------------------------------*/
-/*				Typedefs enums & structs						*/
+/*		Typedefs enums & structs			*/
 /*-------------------------------------------------------------*/
 
 /*-------------------------------------------------------------*/
-/*				Function prototypes								*/
+/*		Function prototypes				*/
 /*-------------------------------------------------------------*/
 /**
  * @brief Initializes the system tick service.

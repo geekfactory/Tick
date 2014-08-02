@@ -33,7 +33,7 @@
 #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
 #pragma config IESO = OFF       // Internal External Switchover bit (Internal External Switchover mode disabled)
 
-void main( )
+void main()
 {
 	ANSEL = 0x00;
 	TRISA = 0xFE;
@@ -44,14 +44,14 @@ void main( )
 	DWORD last_time = 0;
 
 	// Initialize time count facilities
-	tick_init( );
+	tick_init();
 
 	// Main loop
-	for(;; ) {
+	for (;;) {
 		// Check if more than one second (TICK_SECOND) has elapsed
-		if( tick_get( ) - last_time >= TICK_SECOND / 2 ) {
+		if (tick_get() - last_time >= TICK_SECOND / 2) {
 			// Store the last time we toggled the led
-			last_time = tick_get( );
+			last_time = tick_get();
 			// and do it...
 			PORTAbits.RA0 ^= 1;
 		}
@@ -64,10 +64,10 @@ void main( )
  * Interrupt vector implementation. Here we must update the internal counter on
  * the tick library.
  */
-void interrupt isr( void )
+void interrupt isr(void)
 {
 	// Update the system counter
-	tick_update( );
+	tick_update();
 	// Other interrupts can be handled here
 }
 

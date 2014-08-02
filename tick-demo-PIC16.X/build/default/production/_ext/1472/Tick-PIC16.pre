@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "../Tick-PIC16.c"
 
 # 44 "/Applications/microchip/xc8/v1.21/include/pic16f88.h"
 extern volatile unsigned char INDF @ 0x000;
@@ -1294,53 +1294,54 @@ DWORD tick_get();
 # 49
 void tick_update();
 
+# 4 "../Tick-PIC16.c"
+static volatile unsigned long tickcnt = 0;
 
-# 23 "main.c"
-#pragma config FOSC = XT
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config BOREN = OFF
-#pragma config LVP = OFF
-#pragma config CPD = OFF
-#pragma config WRT = OFF
-#pragma config CCPMX = RB0
-#pragma config CP = OFF
-#pragma config FCMEN = OFF
-#pragma config IESO = OFF
+static unsigned char tickbuffer[6];
 
-void main( )
+static void tick_read_internal();
+
+void tick_init()
 {
-ANSEL = 0x00;
-TRISA = 0xFE;
-TRISB = 0xFF;
+T1CON = 0;
+TMR1L = 0;
+TMR1H = 0;
 
+PIR1bits.TMR1IF = 0;
+PIE1bits.TMR1IE = 1;
+INTCONbits.GIE = 1;
+INTCONbits.PEIE = 1;
 
-
-DWORD last_time = 0;
-
-
-tick_init( );
-
-
-for(;; ) {
-
-if( tick_get( ) - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull)) / 2 ) {
-
-last_time = tick_get( );
-
-PORTAbits.RA0 ^= 1;
+T1CON = 0x31;
 }
 
-
-}
-}
-
-# 67
-void interrupt isr( void )
+DWORD tick_get()
 {
-
-tick_update( );
-
+tick_read_internal();
+return *((DWORD *)&tickbuffer[0]);
 }
 
+void tick_update()
+{
+if( PIR1bits.TMR1IF )
+{
+tickcnt ++;
+PIR1bits.TMR1IF = 0;
+}
+}
+
+static void tick_read_internal()
+{
+do
+{
+PIE1bits.TMR1IE = 1;
+asm("nop");
+PIE1bits.TMR1IE = 0;
+
+tickbuffer[0] = TMR1L;
+tickbuffer[1] = TMR1H;
+
+*((DWORD*) &tickbuffer[2] ) = tickcnt;
+} while( PIR1bits.TMR1IF );
+PIE1bits.TMR1IE = 1;
+}

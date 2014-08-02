@@ -24,30 +24,28 @@ void tick_init()
 DWORD tick_get()
 {
 	tick_read_internal();
-	return *((DWORD *)&tickbuffer[0]);
+	return *((DWORD *) & tickbuffer[0]);
 }
 
 void tick_update()
 {
-	if( PIR1bits.TMR1IF )
-	{
-		tickcnt ++;
+	if (PIR1bits.TMR1IF) {
+		tickcnt++;
 		PIR1bits.TMR1IF = 0;
 	}
 }
 
 static void tick_read_internal()
-{	
-	do
-	{
-		PIE1bits.TMR1IE = 1;		// Enable interrupt
+{
+	do {
+		PIE1bits.TMR1IE = 1; // Enable interrupt
 		asm("nop");
-		PIE1bits.TMR1IE = 0;		// Disable interrupt
-		
+		PIE1bits.TMR1IE = 0; // Disable interrupt
+
 		tickbuffer[0] = TMR1L;
 		tickbuffer[1] = TMR1H;
-		
-		*((DWORD*) &tickbuffer[2] ) = tickcnt;
-	} while( PIR1bits.TMR1IF );
+
+		*((DWORD*) & tickbuffer[2]) = tickcnt;
+	} while (PIR1bits.TMR1IF);
 	PIE1bits.TMR1IE = 1;
 }
