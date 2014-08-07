@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtG5nKSY.obj
+$/tmp/cgtA0HxfE.obj
 end_init CODE 0 11 11 2 2
 reset_vec CODE 0 0 0 2 2
 config CONFIG 0 2007 2007 2 2
@@ -74,18 +74,18 @@ STRING 00EA-0FFF 2
 %LINETAB
 $dist/default/production/tick-demo-PIC16.X.production.obj
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":68 4 intentry CODE
-"/tmp/cgtZMLCOw":335 13 cinit CODE
-"/tmp/cgtZMLCOw":336 14 cinit CODE
-"/tmp/cgtZMLCOw":337 15 cinit CODE
-"/tmp/cgtZMLCOw":338 16 cinit CODE
-"/tmp/cgtZMLCOw":341 17 cinit CODE
-"/tmp/cgtZMLCOw":342 18 cinit CODE
-"/tmp/cgtZMLCOw":343 19 cinit CODE
-"/tmp/cgtZMLCOw":344 1A cinit CODE
-"/tmp/cgtZMLCOw":345 1B cinit CODE
-"/tmp/cgtZMLCOw":346 1C cinit CODE
-"/tmp/cgtZMLCOw":353 1D cinit CODE
-"/tmp/cgtZMLCOw":354 1E cinit CODE
+"/tmp/cgtloOMcV":335 13 cinit CODE
+"/tmp/cgtloOMcV":336 14 cinit CODE
+"/tmp/cgtloOMcV":337 15 cinit CODE
+"/tmp/cgtloOMcV":338 16 cinit CODE
+"/tmp/cgtloOMcV":341 17 cinit CODE
+"/tmp/cgtloOMcV":342 18 cinit CODE
+"/tmp/cgtloOMcV":343 19 cinit CODE
+"/tmp/cgtloOMcV":344 1A cinit CODE
+"/tmp/cgtloOMcV":345 1B cinit CODE
+"/tmp/cgtloOMcV":346 1C cinit CODE
+"/tmp/cgtloOMcV":353 1D cinit CODE
+"/tmp/cgtloOMcV":354 1E cinit CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":38 20 maintext CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":39 23 maintext CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":40 25 maintext CODE
@@ -95,32 +95,32 @@ $dist/default/production/tick-demo-PIC16.X.production.obj
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":54 6C maintext CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":56 79 maintext CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":60 83 maintext CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":43 84 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":58 84 text2 CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":61 84 maintext CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":44 87 text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":45 88 text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":47 8B text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":48 91 text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":50 95 text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":51 9D text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":52 9F text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":53 A2 text2 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":32 A3 text5 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":34 A7 text5 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":35 B5 text5 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":26 B7 text1 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":37 B7 text5 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":27 B9 text1 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":12 CA text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":28 CA text1 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":13 CD text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":14 CE text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":16 CF text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":17 D0 text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":18 D3 text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":19 D4 text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":21 D5 text3 CODE
-"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":22 D9 text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":59 87 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":60 88 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":62 8B text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":63 91 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":65 95 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":66 9D text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":67 9F text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":68 A2 text2 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":49 A3 text5 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":50 A7 text5 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":51 B5 text5 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":43 B7 text1 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":53 B7 text5 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":44 B9 text1 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":29 CA text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":45 CA text1 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":30 CD text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":31 CE text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":33 CF text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":34 D0 text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":35 D3 text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":36 D4 text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":38 D5 text3 CODE
+"/Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c":39 D9 text3 CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":70 DA text4 CODE
 "/Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c":72 DD text4 CODE
 # %SYMTAB Section
@@ -146,12 +146,12 @@ __pintentry 8 0 CODE 0 intentry dist/default/production/tick-demo-PIC16.X.produc
 _isr 1B4 0 CODE 0 text4 dist/default/production/tick-demo-PIC16.X.production.obj
 _main 40 0 CODE 0 maintext dist/default/production/tick-demo-PIC16.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
-start 22 0 CODE 0 init /tmp/cgtG5nKSY.obj
+start 22 0 CODE 0 init /tmp/cgtA0HxfE.obj
 _TMR1H F 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
 _TMR1L E 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
 _TRISA 85 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
 _TRISB 86 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec /tmp/cgtG5nKSY.obj
+reset_vec 0 0 CODE 0 reset_vec /tmp/cgtA0HxfE.obj
 _ANSEL 9B 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
 _T1CON 10 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
 wtemp0 7E 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
@@ -211,7 +211,7 @@ __Hbank2 0 0 ABS 0 bank2 -
 __Lbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Lbank3 0 0 ABS 0 bank3 -
-___latbits 1 0 ABS 0 - /tmp/cgtG5nKSY.obj
+___latbits 1 0 ABS 0 - /tmp/cgtA0HxfE.obj
 __Hpowerup 0 0 CODE 0 powerup -
 __Lpowerup 0 0 CODE 0 powerup -
 __ptext0 0 0 CODE 0 text0 dist/default/production/tick-demo-PIC16.X.production.obj
@@ -248,13 +248,13 @@ __Hend_init 26 0 CODE 0 end_init -
 __Lend_init 22 0 CODE 0 end_init -
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __Lreset_vec 0 0 CODE 0 reset_vec -
-intlevel0 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
+intlevel0 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production/tick-demo-PIC16.X.production.obj
-intlevel1 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
-intlevel2 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
-intlevel3 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
-intlevel4 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
-intlevel5 0 0 CODE 0 functab /tmp/cgtG5nKSY.obj
+intlevel1 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
+intlevel2 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
+intlevel3 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
+intlevel4 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
+intlevel5 0 0 CODE 0 functab /tmp/cgtA0HxfE.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production/tick-demo-PIC16.X.production.obj

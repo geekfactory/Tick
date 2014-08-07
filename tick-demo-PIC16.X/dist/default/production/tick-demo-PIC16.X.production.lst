@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.21 build 54009 
-                                                                                               Sat Aug  2 01:29:57 2014
+                                                                                               Thu Aug  7 03:03:48 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 54009
      1                           	processor	16F88
@@ -283,7 +283,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    277  0025  30FF               	movlw	255
    278  0026  0086               	movwf	6	;volatile
    279                           
-   280                           ;main.c: 44: DWORD last_time = 0;
+   280                           ;main.c: 44: uint32_t last_time = 0;
    281  0027  3000               	movlw	0
    282  0028  1283               	bcf	3,5	;RP0=0, select bank0
    283  0029  1303               	bcf	3,6	;RP1=0, select bank0
@@ -295,14 +295,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    289  002F  3000               	movlw	0
    290  0030  00A8               	movwf	main@last_time
    291                           
-   292                           ;main.c: 47: tick_init( );
+   292                           ;main.c: 47: tick_init();
    293  0031  118A  20CA  118A   	fcall	_tick_init
    294  0034                     l607:	
-   295                           ;main.c: 50: for(;; ) {
+   295                           ;main.c: 50: for (;;) {
    296                           
    297                           
-   298                           ;main.c: 52: if( tick_get( ) - last_time >= ((unsigned long long)((1000000 + 128ull)/8ul
-      +                          l)) / 2 ) {
+   298                           ;main.c: 52: if (tick_get() - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull
+      +                          )) / 2) {
    299  0034  1283               	bcf	3,5	;RP0=0, select bank0
    300  0035  1303               	bcf	3,6	;RP1=0, select bank0
    301  0036  0928               	comf	main@last_time,w
@@ -363,7 +363,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    356  006A  1C03               	skipc
    357  006B  2834               	goto	l607
    358                           
-   359                           ;main.c: 54: last_time = tick_get( );
+   359                           ;main.c: 54: last_time = tick_get();
    360  006C  118A  20B7  118A   	fcall	_tick_get
    361  006F  1283               	bcf	3,5	;RP0=0, select bank0
    362  0070  1303               	bcf	3,6	;RP1=0, select bank0
@@ -397,7 +397,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    390  00B7                     __ptext1:	
    391 ;; *************** function _tick_get *****************
    392 ;; Defined at:
-   393 ;;		line 25 in file "../Tick-PIC16.c"
+   393 ;;		line 42 in file "../Tick-PIC16.c"
    394 ;; Parameters:    Size  Location     Type
    395 ;;		None
    396 ;; Auto vars:     Size  Location     Type
@@ -429,13 +429,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    422                           ;psect for function _tick_get
    423  00B7                     _tick_get:	
    424                           
-   425                           ;Tick-PIC16.c: 26: tick_read_internal();
+   425                           ;Tick-PIC16.c: 43: tick_read_internal();
    426                           
    427                           ;incstack = 0
    428                           ; Regs used in _tick_get: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    429  00B7  118A  2084         	fcall	_tick_read_internal
    430                           
-   431                           ;Tick-PIC16.c: 27: return *((DWORD *)&tickbuffer[0]);
+   431                           ;Tick-PIC16.c: 44: return *((uint32_t *) & tickbuffer[0]);
    432  00B9  302C               	movlw	low _tickbuffer
    433  00BA  0084               	movwf	4
    434  00BB  1383               	bcf	3,7	;select IRP bank0
@@ -459,7 +459,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    452  0084                     __ptext2:	
    453 ;; *************** function _tick_read_internal *****************
    454 ;; Defined at:
-   455 ;;		line 40 in file "../Tick-PIC16.c"
+   455 ;;		line 56 in file "../Tick-PIC16.c"
    456 ;; Parameters:    Size  Location     Type
    457 ;;		None
    458 ;; Auto vars:     Size  Location     Type
@@ -493,268 +493,266 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 54009
    486  0084                     l54:	
    487                           ;incstack = 0
    488                           ; Regs used in _tick_read_internal: [wreg]
-   489                           ;Tick-PIC16.c: 41: do
+   489                           ;Tick-PIC16.c: 57: do {
    490                           
    491                           
-   492                           ;Tick-PIC16.c: 42: {
-   493                           ;Tick-PIC16.c: 43: PIE1bits.TMR1IE = 1;
-   494  0084  1683               	bsf	3,5	;RP0=1, select bank1
-   495  0085  1303               	bcf	3,6	;RP1=0, select bank1
-   496  0086  140C               	bsf	12,0	;volatile
-   497  0087  0000               	nop	;# 
-   498                           
-   499                           ;Tick-PIC16.c: 45: PIE1bits.TMR1IE = 0;
-   500  0088  1683               	bsf	3,5	;RP0=1, select bank1
-   501  0089  1303               	bcf	3,6	;RP1=0, select bank1
-   502  008A  100C               	bcf	12,0	;volatile
-   503                           
-   504                           ;Tick-PIC16.c: 47: tickbuffer[0] = TMR1L;
-   505  008B  1283               	bcf	3,5	;RP0=0, select bank0
-   506  008C  1303               	bcf	3,6	;RP1=0, select bank0
-   507  008D  080E               	movf	14,w	;volatile
-   508  008E  00F4               	movwf	??_tick_read_internal
-   509  008F  0874               	movf	??_tick_read_internal,w
-   510  0090  00AC               	movwf	_tickbuffer
-   511                           
-   512                           ;Tick-PIC16.c: 48: tickbuffer[1] = TMR1H;
-   513  0091  080F               	movf	15,w	;volatile
-   514  0092  00F4               	movwf	??_tick_read_internal
-   515  0093  0874               	movf	??_tick_read_internal,w
-   516  0094  00AD               	movwf	_tickbuffer+1
-   517                           
-   518                           ;Tick-PIC16.c: 50: *((DWORD*) &tickbuffer[2] ) = tickcnt;
-   519  0095  0878               	movf	_tickcnt+3,w	;volatile
-   520  0096  00B1               	movwf	_tickbuffer+5
-   521  0097  0877               	movf	_tickcnt+2,w	;volatile
-   522  0098  00B0               	movwf	_tickbuffer+4
-   523  0099  0876               	movf	_tickcnt+1,w	;volatile
-   524  009A  00AF               	movwf	_tickbuffer+3
-   525  009B  0875               	movf	_tickcnt,w	;volatile
-   526  009C  00AE               	movwf	_tickbuffer+2
-   527                           
-   528                           ;Tick-PIC16.c: 51: } while( PIR1bits.TMR1IF );
-   529  009D  180C               	btfsc	12,0	;volatile
-   530  009E  2884               	goto	l54
-   531                           
-   532                           ;Tick-PIC16.c: 52: PIE1bits.TMR1IE = 1;
-   533  009F  1683               	bsf	3,5	;RP0=1, select bank1
-   534  00A0  1303               	bcf	3,6	;RP1=0, select bank1
-   535  00A1  140C               	bsf	12,0	;volatile
-   536  00A2  0008               	return
-   537  00A3                     __end_of_tick_read_internal:	
-   538                           
-   539                           	psect	text3
-   540  00CA                     __ptext3:	
-   541 ;; *************** function _tick_init *****************
-   542 ;; Defined at:
-   543 ;;		line 11 in file "../Tick-PIC16.c"
-   544 ;; Parameters:    Size  Location     Type
-   545 ;;		None
-   546 ;; Auto vars:     Size  Location     Type
-   547 ;;		None
-   548 ;; Return value:  Size  Location     Type
-   549 ;;		None               void
-   550 ;; Registers used:
-   551 ;;		wreg, status,2
-   552 ;; Tracked objects:
-   553 ;;		On entry : 0/0
-   554 ;;		On exit  : 0/0
-   555 ;;		Unchanged: 0/0
-   556 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   557 ;;      Params:         0       0       0       0       0
-   558 ;;      Locals:         0       0       0       0       0
-   559 ;;      Temps:          0       0       0       0       0
-   560 ;;      Totals:         0       0       0       0       0
-   561 ;;Total ram usage:        0 bytes
-   562 ;; Hardware stack levels used:    1
-   563 ;; Hardware stack levels required when called:    2
-   564 ;; This function calls:
-   565 ;;		Nothing
-   566 ;; This function is called by:
-   567 ;;		_main
-   568 ;; This function uses a non-reentrant model
-   569 ;;
+   492                           ;Tick-PIC16.c: 58: PIE1bits.TMR1IE = 1;
+   493  0084  1683               	bsf	3,5	;RP0=1, select bank1
+   494  0085  1303               	bcf	3,6	;RP1=0, select bank1
+   495  0086  140C               	bsf	12,0	;volatile
+   496  0087  0000               	nop	;# 
+   497                           
+   498                           ;Tick-PIC16.c: 60: PIE1bits.TMR1IE = 0;
+   499  0088  1683               	bsf	3,5	;RP0=1, select bank1
+   500  0089  1303               	bcf	3,6	;RP1=0, select bank1
+   501  008A  100C               	bcf	12,0	;volatile
+   502                           
+   503                           ;Tick-PIC16.c: 62: tickbuffer[0] = TMR1L;
+   504  008B  1283               	bcf	3,5	;RP0=0, select bank0
+   505  008C  1303               	bcf	3,6	;RP1=0, select bank0
+   506  008D  080E               	movf	14,w	;volatile
+   507  008E  00F4               	movwf	??_tick_read_internal
+   508  008F  0874               	movf	??_tick_read_internal,w
+   509  0090  00AC               	movwf	_tickbuffer
+   510                           
+   511                           ;Tick-PIC16.c: 63: tickbuffer[1] = TMR1H;
+   512  0091  080F               	movf	15,w	;volatile
+   513  0092  00F4               	movwf	??_tick_read_internal
+   514  0093  0874               	movf	??_tick_read_internal,w
+   515  0094  00AD               	movwf	_tickbuffer+1
+   516                           
+   517                           ;Tick-PIC16.c: 65: *((uint32_t*) & tickbuffer[2]) = tickcnt;
+   518  0095  0878               	movf	_tickcnt+3,w	;volatile
+   519  0096  00B1               	movwf	_tickbuffer+5
+   520  0097  0877               	movf	_tickcnt+2,w	;volatile
+   521  0098  00B0               	movwf	_tickbuffer+4
+   522  0099  0876               	movf	_tickcnt+1,w	;volatile
+   523  009A  00AF               	movwf	_tickbuffer+3
+   524  009B  0875               	movf	_tickcnt,w	;volatile
+   525  009C  00AE               	movwf	_tickbuffer+2
+   526                           
+   527                           ;Tick-PIC16.c: 66: } while (PIR1bits.TMR1IF);
+   528  009D  180C               	btfsc	12,0	;volatile
+   529  009E  2884               	goto	l54
+   530                           
+   531                           ;Tick-PIC16.c: 67: PIE1bits.TMR1IE = 1;
+   532  009F  1683               	bsf	3,5	;RP0=1, select bank1
+   533  00A0  1303               	bcf	3,6	;RP1=0, select bank1
+   534  00A1  140C               	bsf	12,0	;volatile
+   535  00A2  0008               	return
+   536  00A3                     __end_of_tick_read_internal:	
+   537                           
+   538                           	psect	text3
+   539  00CA                     __ptext3:	
+   540 ;; *************** function _tick_init *****************
+   541 ;; Defined at:
+   542 ;;		line 28 in file "../Tick-PIC16.c"
+   543 ;; Parameters:    Size  Location     Type
+   544 ;;		None
+   545 ;; Auto vars:     Size  Location     Type
+   546 ;;		None
+   547 ;; Return value:  Size  Location     Type
+   548 ;;		None               void
+   549 ;; Registers used:
+   550 ;;		wreg, status,2
+   551 ;; Tracked objects:
+   552 ;;		On entry : 0/0
+   553 ;;		On exit  : 0/0
+   554 ;;		Unchanged: 0/0
+   555 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   556 ;;      Params:         0       0       0       0       0
+   557 ;;      Locals:         0       0       0       0       0
+   558 ;;      Temps:          0       0       0       0       0
+   559 ;;      Totals:         0       0       0       0       0
+   560 ;;Total ram usage:        0 bytes
+   561 ;; Hardware stack levels used:    1
+   562 ;; Hardware stack levels required when called:    2
+   563 ;; This function calls:
+   564 ;;		Nothing
+   565 ;; This function is called by:
+   566 ;;		_main
+   567 ;; This function uses a non-reentrant model
+   568 ;;
+   569                           
    570                           
-   571                           
-   572                           ;psect for function _tick_init
-   573  00CA                     _tick_init:	
-   574                           
-   575                           ;Tick-PIC16.c: 12: T1CON = 0;
-   576                           
-   577                           ;incstack = 0
-   578                           ; Regs used in _tick_init: [wreg+status,2]
-   579  00CA  1283               	bcf	3,5	;RP0=0, select bank0
-   580  00CB  1303               	bcf	3,6	;RP1=0, select bank0
-   581  00CC  0190               	clrf	16	;volatile
-   582                           
-   583                           ;Tick-PIC16.c: 13: TMR1L = 0;
-   584  00CD  018E               	clrf	14	;volatile
-   585                           
-   586                           ;Tick-PIC16.c: 14: TMR1H = 0;
-   587  00CE  018F               	clrf	15	;volatile
-   588                           
-   589                           ;Tick-PIC16.c: 16: PIR1bits.TMR1IF = 0;
-   590  00CF  100C               	bcf	12,0	;volatile
-   591                           
-   592                           ;Tick-PIC16.c: 17: PIE1bits.TMR1IE = 1;
-   593  00D0  1683               	bsf	3,5	;RP0=1, select bank1
-   594  00D1  1303               	bcf	3,6	;RP1=0, select bank1
-   595  00D2  140C               	bsf	12,0	;volatile
-   596                           
-   597                           ;Tick-PIC16.c: 18: INTCONbits.GIE = 1;
-   598  00D3  178B               	bsf	11,7	;volatile
-   599                           
-   600                           ;Tick-PIC16.c: 19: INTCONbits.PEIE = 1;
-   601  00D4  170B               	bsf	11,6	;volatile
-   602                           
-   603                           ;Tick-PIC16.c: 21: T1CON = 0x31;
-   604  00D5  3031               	movlw	49
-   605  00D6  1283               	bcf	3,5	;RP0=0, select bank0
-   606  00D7  1303               	bcf	3,6	;RP1=0, select bank0
-   607  00D8  0090               	movwf	16	;volatile
-   608  00D9  0008               	return
-   609  00DA                     __end_of_tick_init:	
-   610                           
-   611                           	psect	text4
-   612  00DA                     __ptext4:	
-   613 ;; *************** function _isr *****************
-   614 ;; Defined at:
-   615 ;;		line 68 in file "main.c"
-   616 ;; Parameters:    Size  Location     Type
-   617 ;;		None
-   618 ;; Auto vars:     Size  Location     Type
-   619 ;;		None
-   620 ;; Return value:  Size  Location     Type
-   621 ;;		None               void
-   622 ;; Registers used:
-   623 ;;		wreg, status,2, status,0, pclath, cstack
-   624 ;; Tracked objects:
-   625 ;;		On entry : 0/0
-   626 ;;		On exit  : 0/0
-   627 ;;		Unchanged: 0/0
-   628 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   629 ;;      Params:         0       0       0       0       0
-   630 ;;      Locals:         0       0       0       0       0
-   631 ;;      Temps:          4       0       0       0       0
-   632 ;;      Totals:         4       0       0       0       0
-   633 ;;Total ram usage:        4 bytes
-   634 ;; Hardware stack levels used:    1
-   635 ;; Hardware stack levels required when called:    1
-   636 ;; This function calls:
-   637 ;;		_tick_update
-   638 ;; This function is called by:
-   639 ;;		Interrupt level 1
-   640 ;; This function uses a non-reentrant model
-   641 ;;
+   571                           ;psect for function _tick_init
+   572  00CA                     _tick_init:	
+   573                           
+   574                           ;Tick-PIC16.c: 29: T1CON = 0;
+   575                           
+   576                           ;incstack = 0
+   577                           ; Regs used in _tick_init: [wreg+status,2]
+   578  00CA  1283               	bcf	3,5	;RP0=0, select bank0
+   579  00CB  1303               	bcf	3,6	;RP1=0, select bank0
+   580  00CC  0190               	clrf	16	;volatile
+   581                           
+   582                           ;Tick-PIC16.c: 30: TMR1L = 0;
+   583  00CD  018E               	clrf	14	;volatile
+   584                           
+   585                           ;Tick-PIC16.c: 31: TMR1H = 0;
+   586  00CE  018F               	clrf	15	;volatile
+   587                           
+   588                           ;Tick-PIC16.c: 33: PIR1bits.TMR1IF = 0;
+   589  00CF  100C               	bcf	12,0	;volatile
+   590                           
+   591                           ;Tick-PIC16.c: 34: PIE1bits.TMR1IE = 1;
+   592  00D0  1683               	bsf	3,5	;RP0=1, select bank1
+   593  00D1  1303               	bcf	3,6	;RP1=0, select bank1
+   594  00D2  140C               	bsf	12,0	;volatile
+   595                           
+   596                           ;Tick-PIC16.c: 35: INTCONbits.GIE = 1;
+   597  00D3  178B               	bsf	11,7	;volatile
+   598                           
+   599                           ;Tick-PIC16.c: 36: INTCONbits.PEIE = 1;
+   600  00D4  170B               	bsf	11,6	;volatile
+   601                           
+   602                           ;Tick-PIC16.c: 38: T1CON = 0x31;
+   603  00D5  3031               	movlw	49
+   604  00D6  1283               	bcf	3,5	;RP0=0, select bank0
+   605  00D7  1303               	bcf	3,6	;RP1=0, select bank0
+   606  00D8  0090               	movwf	16	;volatile
+   607  00D9  0008               	return
+   608  00DA                     __end_of_tick_init:	
+   609                           
+   610                           	psect	text4
+   611  00DA                     __ptext4:	
+   612 ;; *************** function _isr *****************
+   613 ;; Defined at:
+   614 ;;		line 68 in file "main.c"
+   615 ;; Parameters:    Size  Location     Type
+   616 ;;		None
+   617 ;; Auto vars:     Size  Location     Type
+   618 ;;		None
+   619 ;; Return value:  Size  Location     Type
+   620 ;;		None               void
+   621 ;; Registers used:
+   622 ;;		wreg, status,2, status,0, pclath, cstack
+   623 ;; Tracked objects:
+   624 ;;		On entry : 0/0
+   625 ;;		On exit  : 0/0
+   626 ;;		Unchanged: 0/0
+   627 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   628 ;;      Params:         0       0       0       0       0
+   629 ;;      Locals:         0       0       0       0       0
+   630 ;;      Temps:          4       0       0       0       0
+   631 ;;      Totals:         4       0       0       0       0
+   632 ;;Total ram usage:        4 bytes
+   633 ;; Hardware stack levels used:    1
+   634 ;; Hardware stack levels required when called:    1
+   635 ;; This function calls:
+   636 ;;		_tick_update
+   637 ;; This function is called by:
+   638 ;;		Interrupt level 1
+   639 ;; This function uses a non-reentrant model
+   640 ;;
+   641                           
    642                           
-   643                           
-   644                           ;psect for function _isr
-   645  00DA                     _isr:	
-   646                           
-   647                           ;main.c: 70: tick_update( );
-   648  00DA  118A  20A3  118A   	fcall	_tick_update
-   649  00DD  0873               	movf	??_isr+3,w
-   650  00DE  1283               	bcf	3,5	;RP0=0, select bank0
-   651  00DF  1303               	bcf	3,6	;RP1=0, select bank0
-   652  00E0  00FF               	movwf	127
-   653  00E1  0872               	movf	??_isr+2,w
-   654  00E2  008A               	movwf	10
-   655  00E3  0871               	movf	??_isr+1,w
-   656  00E4  0084               	movwf	4
-   657  00E5  0E70               	swapf	??_isr^(0+-128),w
-   658  00E6  0083               	movwf	3
-   659  00E7  0EFE               	swapf	126,f
-   660  00E8  0E7E               	swapf	126,w
-   661  00E9  0009               	retfie
-   662  00EA                     __end_of_isr:	
-   663                           
-   664                           	psect	intentry
-   665  0004                     __pintentry:	
-   666                           ;incstack = 0
-   667                           ; Regs used in _isr: [wreg+status,2+status,0+pclath+cstack]
-   668                           
-   669  0004                     interrupt_function:	
-   670  007E                     saved_w	set	btemp
-   671  0004  00FE               	movwf	btemp
-   672  0005  0E03               	swapf	3,w
-   673  0006  00F0               	movwf	??_isr
-   674  0007  0804               	movf	4,w
-   675  0008  00F1               	movwf	??_isr+1
-   676  0009  080A               	movf	10,w
-   677  000A  00F2               	movwf	??_isr+2
-   678  000B  1283               	bcf	3,5	;RP0=0, select bank0
-   679  000C  1303               	bcf	3,6	;RP1=0, select bank0
-   680  000D  087F               	movf	btemp+1,w
-   681  000E  00F3               	movwf	??_isr+3
-   682  000F  118A  28DA         	ljmp	_isr
-   683                           
-   684                           	psect	text5
-   685  00A3                     __ptext5:	
-   686 ;; *************** function _tick_update *****************
-   687 ;; Defined at:
-   688 ;;		line 31 in file "../Tick-PIC16.c"
-   689 ;; Parameters:    Size  Location     Type
-   690 ;;		None
-   691 ;; Auto vars:     Size  Location     Type
-   692 ;;		None
-   693 ;; Return value:  Size  Location     Type
-   694 ;;		None               void
-   695 ;; Registers used:
-   696 ;;		wreg
-   697 ;; Tracked objects:
-   698 ;;		On entry : 0/0
-   699 ;;		On exit  : 0/0
-   700 ;;		Unchanged: 0/0
-   701 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   702 ;;      Params:         0       0       0       0       0
-   703 ;;      Locals:         0       0       0       0       0
-   704 ;;      Temps:          0       0       0       0       0
-   705 ;;      Totals:         0       0       0       0       0
-   706 ;;Total ram usage:        0 bytes
-   707 ;; Hardware stack levels used:    1
-   708 ;; This function calls:
-   709 ;;		Nothing
-   710 ;; This function is called by:
-   711 ;;		_isr
-   712 ;; This function uses a non-reentrant model
-   713 ;;
+   643                           ;psect for function _isr
+   644  00DA                     _isr:	
+   645                           
+   646                           ;main.c: 70: tick_update();
+   647  00DA  118A  20A3  118A   	fcall	_tick_update
+   648  00DD  0873               	movf	??_isr+3,w
+   649  00DE  1283               	bcf	3,5	;RP0=0, select bank0
+   650  00DF  1303               	bcf	3,6	;RP1=0, select bank0
+   651  00E0  00FF               	movwf	127
+   652  00E1  0872               	movf	??_isr+2,w
+   653  00E2  008A               	movwf	10
+   654  00E3  0871               	movf	??_isr+1,w
+   655  00E4  0084               	movwf	4
+   656  00E5  0E70               	swapf	??_isr^(0+-128),w
+   657  00E6  0083               	movwf	3
+   658  00E7  0EFE               	swapf	126,f
+   659  00E8  0E7E               	swapf	126,w
+   660  00E9  0009               	retfie
+   661  00EA                     __end_of_isr:	
+   662                           
+   663                           	psect	intentry
+   664  0004                     __pintentry:	
+   665                           ;incstack = 0
+   666                           ; Regs used in _isr: [wreg+status,2+status,0+pclath+cstack]
+   667                           
+   668  0004                     interrupt_function:	
+   669  007E                     saved_w	set	btemp
+   670  0004  00FE               	movwf	btemp
+   671  0005  0E03               	swapf	3,w
+   672  0006  00F0               	movwf	??_isr
+   673  0007  0804               	movf	4,w
+   674  0008  00F1               	movwf	??_isr+1
+   675  0009  080A               	movf	10,w
+   676  000A  00F2               	movwf	??_isr+2
+   677  000B  1283               	bcf	3,5	;RP0=0, select bank0
+   678  000C  1303               	bcf	3,6	;RP1=0, select bank0
+   679  000D  087F               	movf	btemp+1,w
+   680  000E  00F3               	movwf	??_isr+3
+   681  000F  118A  28DA         	ljmp	_isr
+   682                           
+   683                           	psect	text5
+   684  00A3                     __ptext5:	
+   685 ;; *************** function _tick_update *****************
+   686 ;; Defined at:
+   687 ;;		line 48 in file "../Tick-PIC16.c"
+   688 ;; Parameters:    Size  Location     Type
+   689 ;;		None
+   690 ;; Auto vars:     Size  Location     Type
+   691 ;;		None
+   692 ;; Return value:  Size  Location     Type
+   693 ;;		None               void
+   694 ;; Registers used:
+   695 ;;		wreg
+   696 ;; Tracked objects:
+   697 ;;		On entry : 0/0
+   698 ;;		On exit  : 0/0
+   699 ;;		Unchanged: 0/0
+   700 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   701 ;;      Params:         0       0       0       0       0
+   702 ;;      Locals:         0       0       0       0       0
+   703 ;;      Temps:          0       0       0       0       0
+   704 ;;      Totals:         0       0       0       0       0
+   705 ;;Total ram usage:        0 bytes
+   706 ;; Hardware stack levels used:    1
+   707 ;; This function calls:
+   708 ;;		Nothing
+   709 ;; This function is called by:
+   710 ;;		_isr
+   711 ;; This function uses a non-reentrant model
+   712 ;;
+   713                           
    714                           
-   715                           
-   716                           ;psect for function _tick_update
-   717  00A3                     _tick_update:	
-   718                           
-   719                           ;Tick-PIC16.c: 32: if( PIR1bits.TMR1IF )
-   720                           
-   721                           ;incstack = 0
-   722                           ; Regs used in _tick_update: [wreg]
-   723  00A3  1283               	bcf	3,5	;RP0=0, select bank0
-   724  00A4  1303               	bcf	3,6	;RP1=0, select bank0
-   725  00A5  1C0C               	btfss	12,0	;volatile
-   726  00A6  0008               	return
-   727                           
-   728                           ;Tick-PIC16.c: 33: {
-   729                           ;Tick-PIC16.c: 34: tickcnt ++;
-   730  00A7  3001               	movlw	1
-   731  00A8  07F5               	addwf	_tickcnt,f	;volatile
-   732  00A9  3000               	movlw	0
-   733  00AA  1803               	skipnc
-   734  00AB  3001               	movlw	1
-   735  00AC  07F6               	addwf	_tickcnt+1,f	;volatile
-   736  00AD  3000               	movlw	0
-   737  00AE  1803               	skipnc
-   738  00AF  3001               	movlw	1
-   739  00B0  07F7               	addwf	_tickcnt+2,f	;volatile
-   740  00B1  3000               	movlw	0
-   741  00B2  1803               	skipnc
-   742  00B3  3001               	movlw	1
-   743  00B4  07F8               	addwf	_tickcnt+3,f	;volatile
-   744                           
-   745                           ;Tick-PIC16.c: 35: PIR1bits.TMR1IF = 0;
-   746  00B5  100C               	bcf	12,0	;volatile
-   747  00B6  0008               	return
-   748  00B7                     __end_of_tick_update:	
-   749  007E                     btemp	set	126	;btemp
-   750  007E                     wtemp0	set	126
+   715                           ;psect for function _tick_update
+   716  00A3                     _tick_update:	
+   717                           
+   718                           ;Tick-PIC16.c: 49: if (PIR1bits.TMR1IF) {
+   719                           
+   720                           ;incstack = 0
+   721                           ; Regs used in _tick_update: [wreg]
+   722  00A3  1283               	bcf	3,5	;RP0=0, select bank0
+   723  00A4  1303               	bcf	3,6	;RP1=0, select bank0
+   724  00A5  1C0C               	btfss	12,0	;volatile
+   725  00A6  0008               	return
+   726                           
+   727                           ;Tick-PIC16.c: 50: tickcnt++;
+   728  00A7  3001               	movlw	1
+   729  00A8  07F5               	addwf	_tickcnt,f	;volatile
+   730  00A9  3000               	movlw	0
+   731  00AA  1803               	skipnc
+   732  00AB  3001               	movlw	1
+   733  00AC  07F6               	addwf	_tickcnt+1,f	;volatile
+   734  00AD  3000               	movlw	0
+   735  00AE  1803               	skipnc
+   736  00AF  3001               	movlw	1
+   737  00B0  07F7               	addwf	_tickcnt+2,f	;volatile
+   738  00B1  3000               	movlw	0
+   739  00B2  1803               	skipnc
+   740  00B3  3001               	movlw	1
+   741  00B4  07F8               	addwf	_tickcnt+3,f	;volatile
+   742                           
+   743                           ;Tick-PIC16.c: 51: PIR1bits.TMR1IF = 0;
+   744  00B5  100C               	bcf	12,0	;volatile
+   745  00B6  0008               	return
+   746  00B7                     __end_of_tick_update:	
+   747  007E                     btemp	set	126	;btemp
+   748  007E                     wtemp0	set	126
 
 
 Data Sizes:
@@ -889,7 +887,7 @@ DATA                 0      0      21      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.21 build 54009 
-Symbol Table                                                                                   Sat Aug  2 01:29:57 2014
+Symbol Table                                                                                   Thu Aug  7 03:03:48 2014
 
                 __CFG_CP$OFF 0000                           l54 0084                           u80 0051  
                          u81 0052                           u82 0057                           u83 0058  

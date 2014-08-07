@@ -2,13 +2,13 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 16F88 ]
-"11 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
+"28 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
 [v _tick_init tick_init `(v  1 e 0 0 ]
-"25
+"42
 [v _tick_get tick_get `(ul  1 e 4 0 ]
-"31
+"48
 [v _tick_update tick_update `(v  1 e 0 0 ]
-"40
+"56
 [v _tick_read_internal tick_read_internal `(v  1 s 0 tick_read_internal ]
 "5 /Applications/microchip/xc8/v1.21/sources/pic/abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -114,9 +114,9 @@
 [v _main main `(v  1 e 0 0 ]
 "68
 [v _isr isr `II(v  1 e 0 0 ]
-"4 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
+"21 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
 [v _tickcnt tickcnt `VEul  1 s 4 tickcnt ]
-"6
+"23
 [v _tickbuffer tickbuffer `[6]uc  1 s 6 tickbuffer ]
 [s S30 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
@@ -197,28 +197,28 @@
 [v main@last_time last_time `ul  1 a 4 8 ]
 "61
 } 0
-"25 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
+"42 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
 [v _tick_get tick_get `(ul  1 e 4 0 ]
 {
-"28
+"45
 } 0
-"40
+"56
 [v _tick_read_internal tick_read_internal `(v  1 s 0 tick_read_internal ]
 {
-"53
+"68
 } 0
-"11
+"28
 [v _tick_init tick_init `(v  1 e 0 0 ]
 {
-"22
+"39
 } 0
 "68 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/tick-demo-PIC16.X/main.c
 [v _isr isr `II(v  1 e 0 0 ]
 {
 "72
 } 0
-"31 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
+"48 /Users/Jesus/Dropbox/Electronics/MCULib/Tick/Tick-PIC16.c
 [v _tick_update tick_update `(v  1 e 0 0 ]
 {
-"37
+"53
 } 0
