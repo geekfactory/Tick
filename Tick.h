@@ -60,7 +60,7 @@ void tick_init();
  *
  * @return The current system tick value (a 32 bit integer value)
  */
-DWORD tick_get();
+uint32_t tick_get();
 
 /**
  * @brief Updates the tick counter variable.
