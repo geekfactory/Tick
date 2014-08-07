@@ -54,11 +54,8 @@ static void tick_read_internal()
 		Nop();
 		IEC0bits.T1IE = 0; // Disable interrupt
 
-		// Get low 2 bytes
 		((uint32_t*) tickbuffer)[0] = TMR1;
 
-		// Correct corner case where interrupt increments byte[4+] but 
-		// TMR1 hasn't rolled over to 0x0000 yet
 		xTempTicks = tickcnt;
 		if (((uint32_t *) tickbuffer)[0] == 0xFFFFu)
 			xTempTicks--;
