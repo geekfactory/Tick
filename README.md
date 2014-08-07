@@ -7,7 +7,7 @@ The "Tick" library provides functions for time management, non-blocking delays a
 * PIC18F Using Timer 0
 * PIC24FJ, PIC24HJ using Timer 1
 
-La librería "Tick" provee funciones para el manejo de tiempos, retardos sin bloqueos y planificacion de eventos en varios microcontroladores. La librería soporta los siguientes dispositivos:
+La librería "Tick" provee funciones para el manejo de tiempo, retardos sin bloqueos y planificación de eventos en varios microcontroladores. La librería soporta los siguientes dispositivos:
 
 * PIC16F Using Timer 1
 * PIC18F Using Timer 0
@@ -16,7 +16,7 @@ La librería "Tick" provee funciones para el manejo de tiempos, retardos sin blo
 Usage
 ====
 
-For those who are familiar with the use of arduino millis() function the tick library should be very easy to use and understand. The main difference is that the tick library doesn´t provide a output which is callibrated to any specific time units. Compile time constants are defined to convert between tick units and seconds, hours, days, etc.
+For those who are familiar with the use of arduino millis() function the "Tick" library should be very easy to use and understand. The main difference is that the "Tick" library doesn´t provide a value which is calibrated to any specific time units. Constants defined on ***Tick.h*** allow the conversion between system ticks and time units such as seconds, hours, days, etc.
 
 Para aquellas personas que estan familiarizadas con el uso de la funcion millis() en el entorno Arduino, la librería "Tick" debe ser bastante fácil de utilizar y de comprender. La diferencia principal es que la librería "Tick" no presenta una salida que este calibrada a una unidad de tiempo específica. Las constantes definidas en el archivo ***Tick.h*** permiten convertir entre "tikcs" del sistema y unidades de tiempo como segundos, horas, días, etc.
 
