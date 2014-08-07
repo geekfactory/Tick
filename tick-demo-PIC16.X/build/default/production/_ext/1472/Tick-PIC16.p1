@@ -32,7 +32,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S12 . . . ]
 "319
 [v _INTCONbits `VS12 ~T0 @X0 0 e@11 ]
-"8 ../Tick-PIC16.c
+"25 ../Tick-PIC16.c
 [v _tick_read_internal `(v ~T0 @X0 0 sf ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
 "46 /Applications/microchip/xc8/v1.21/include/pic16f88.h
@@ -940,152 +940,163 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 [; ;eeprom_routines.h: 44: extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 [; ;pic.h: 151: extern void _delay(unsigned long);
-[; ;Compiler.h: 4: typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
-[; ;Compiler.h: 7: typedef void VOID;
-[; ;Compiler.h: 8: typedef char CHAR8;
-[; ;Compiler.h: 9: typedef unsigned char UCHAR8;
-[; ;Compiler.h: 11: typedef unsigned char BYTE;
-[; ;Compiler.h: 12: typedef unsigned short int WORD;
-[; ;Compiler.h: 13: typedef unsigned long DWORD;
-[; ;Compiler.h: 14: typedef unsigned long long QWORD;
-[; ;Compiler.h: 16: typedef signed char CHAR;
-[; ;Compiler.h: 17: typedef signed short int SHORT;
-[; ;Compiler.h: 18: typedef signed long LONG;
-[; ;Compiler.h: 19: typedef signed long long LONGLONG;
-[; ;Compiler.h: 21: typedef unsigned char PORTBASE;
-[; ;Tick.h: 28: void tick_init();
-[; ;Tick.h: 40: DWORD tick_get();
-[; ;Tick.h: 49: void tick_update();
-"4 ../Tick-PIC16.c
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;Tick.h: 51: void tick_init();
+[; ;Tick.h: 63: uint32_t tick_get();
+[; ;Tick.h: 72: void tick_update();
+"21 ../Tick-PIC16.c
 [v _tickcnt `Vul ~T0 @X0 1 s ]
 [i _tickcnt
 -> -> -> 0 `i `l `ul
 ]
-[; ;Tick-PIC16.c: 4: static volatile unsigned long tickcnt = 0;
-"6
+[; ;Tick-PIC16.c: 21: static volatile unsigned long tickcnt = 0;
+"23
 [v _tickbuffer `uc ~T0 @X0 -> 6 `i s ]
-[; ;Tick-PIC16.c: 6: static unsigned char tickbuffer[6];
-[; ;Tick-PIC16.c: 8: static void tick_read_internal();
-"11
+[; ;Tick-PIC16.c: 23: static unsigned char tickbuffer[6];
+[; ;Tick-PIC16.c: 25: static void tick_read_internal();
+"28
 [v _tick_init `(v ~T0 @X0 1 ef ]
 {
-[; ;Tick-PIC16.c: 10: void tick_init()
-[; ;Tick-PIC16.c: 11: {
+[; ;Tick-PIC16.c: 27: void tick_init()
+[; ;Tick-PIC16.c: 28: {
 [e :U _tick_init ]
 [f ]
-[; ;Tick-PIC16.c: 12: T1CON = 0;
-"12
+[; ;Tick-PIC16.c: 29: T1CON = 0;
+"29
 [e = _T1CON -> -> 0 `i `uc ]
-[; ;Tick-PIC16.c: 13: TMR1L = 0;
-"13
+[; ;Tick-PIC16.c: 30: TMR1L = 0;
+"30
 [e = _TMR1L -> -> 0 `i `uc ]
-[; ;Tick-PIC16.c: 14: TMR1H = 0;
-"14
+[; ;Tick-PIC16.c: 31: TMR1H = 0;
+"31
 [e = _TMR1H -> -> 0 `i `uc ]
-[; ;Tick-PIC16.c: 16: PIR1bits.TMR1IF = 0;
-"16
+[; ;Tick-PIC16.c: 33: PIR1bits.TMR1IF = 0;
+"33
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;Tick-PIC16.c: 17: PIE1bits.TMR1IE = 1;
-"17
+[; ;Tick-PIC16.c: 34: PIE1bits.TMR1IE = 1;
+"34
 [e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;Tick-PIC16.c: 18: INTCONbits.GIE = 1;
-"18
+[; ;Tick-PIC16.c: 35: INTCONbits.GIE = 1;
+"35
 [e = . . _INTCONbits 0 7 -> -> 1 `i `uc ]
-[; ;Tick-PIC16.c: 19: INTCONbits.PEIE = 1;
-"19
+[; ;Tick-PIC16.c: 36: INTCONbits.PEIE = 1;
+"36
 [e = . . _INTCONbits 0 6 -> -> 1 `i `uc ]
-[; ;Tick-PIC16.c: 21: T1CON = 0x31;
-"21
+[; ;Tick-PIC16.c: 38: T1CON = 0x31;
+"38
 [e = _T1CON -> -> 49 `i `uc ]
-[; ;Tick-PIC16.c: 22: }
-"22
+[; ;Tick-PIC16.c: 39: }
+"39
 [e :UE 89 ]
 }
-"25
+"42
 [v _tick_get `(ul ~T0 @X0 1 ef ]
 {
-[; ;Tick-PIC16.c: 24: DWORD tick_get()
-[; ;Tick-PIC16.c: 25: {
+[; ;Tick-PIC16.c: 41: uint32_t tick_get()
+[; ;Tick-PIC16.c: 42: {
 [e :U _tick_get ]
 [f ]
-[; ;Tick-PIC16.c: 26: tick_read_internal();
-"26
+[; ;Tick-PIC16.c: 43: tick_read_internal();
+"43
 [e ( _tick_read_internal ..  ]
-[; ;Tick-PIC16.c: 27: return *((DWORD *)&tickbuffer[0]);
-"27
+[; ;Tick-PIC16.c: 44: return *((uint32_t *) & tickbuffer[0]);
+"44
 [e ) *U -> &U *U + &U _tickbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux `*ul ]
 [e $UE 90  ]
-[; ;Tick-PIC16.c: 28: }
-"28
+[; ;Tick-PIC16.c: 45: }
+"45
 [e :UE 90 ]
 }
-"31
+"48
 [v _tick_update `(v ~T0 @X0 1 ef ]
 {
-[; ;Tick-PIC16.c: 30: void tick_update()
-[; ;Tick-PIC16.c: 31: {
+[; ;Tick-PIC16.c: 47: void tick_update()
+[; ;Tick-PIC16.c: 48: {
 [e :U _tick_update ]
 [f ]
-[; ;Tick-PIC16.c: 32: if( PIR1bits.TMR1IF )
-"32
+[; ;Tick-PIC16.c: 49: if (PIR1bits.TMR1IF) {
+"49
 [e $ ! != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 92  ]
-[; ;Tick-PIC16.c: 33: {
-"33
 {
-[; ;Tick-PIC16.c: 34: tickcnt ++;
-"34
+[; ;Tick-PIC16.c: 50: tickcnt++;
+"50
 [e ++ _tickcnt -> -> -> 1 `i `l `ul ]
-[; ;Tick-PIC16.c: 35: PIR1bits.TMR1IF = 0;
-"35
+[; ;Tick-PIC16.c: 51: PIR1bits.TMR1IF = 0;
+"51
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"36
+"52
 }
 [e :U 92 ]
-[; ;Tick-PIC16.c: 36: }
-[; ;Tick-PIC16.c: 37: }
-"37
-[e :UE 91 ]
-}
-"40
-[v _tick_read_internal `(v ~T0 @X0 1 sf ]
-{
-[; ;Tick-PIC16.c: 39: static void tick_read_internal()
-[; ;Tick-PIC16.c: 40: {
-[e :U _tick_read_internal ]
-[f ]
-[; ;Tick-PIC16.c: 41: do
-"41
-[e :U 96 ]
-[; ;Tick-PIC16.c: 42: {
-"42
-{
-[; ;Tick-PIC16.c: 43: PIE1bits.TMR1IE = 1;
-"43
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;Tick-PIC16.c: 44: asm("nop");
-"44
-[; <" nop ;# ">
-[; ;Tick-PIC16.c: 45: PIE1bits.TMR1IE = 0;
-"45
-[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
-[; ;Tick-PIC16.c: 47: tickbuffer[0] = TMR1L;
-"47
-[e = *U + &U _tickbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux _TMR1L ]
-[; ;Tick-PIC16.c: 48: tickbuffer[1] = TMR1H;
-"48
-[e = *U + &U _tickbuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux _TMR1H ]
-[; ;Tick-PIC16.c: 50: *((DWORD*) &tickbuffer[2] ) = tickcnt;
-"50
-[e = *U -> &U *U + &U _tickbuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux `*ul _tickcnt ]
-"51
-}
-[; ;Tick-PIC16.c: 51: } while( PIR1bits.TMR1IF );
-[e $ != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 96  ]
-[e :U 95 ]
-[; ;Tick-PIC16.c: 52: PIE1bits.TMR1IE = 1;
-"52
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;Tick-PIC16.c: 52: }
 [; ;Tick-PIC16.c: 53: }
 "53
+[e :UE 91 ]
+}
+"56
+[v _tick_read_internal `(v ~T0 @X0 1 sf ]
+{
+[; ;Tick-PIC16.c: 55: static void tick_read_internal()
+[; ;Tick-PIC16.c: 56: {
+[e :U _tick_read_internal ]
+[f ]
+[; ;Tick-PIC16.c: 57: do {
+"57
+[e :U 96 ]
+{
+[; ;Tick-PIC16.c: 58: PIE1bits.TMR1IE = 1;
+"58
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;Tick-PIC16.c: 59: asm("nop");
+"59
+[; <" nop ;# ">
+[; ;Tick-PIC16.c: 60: PIE1bits.TMR1IE = 0;
+"60
+[e = . . _PIE1bits 0 0 -> -> 0 `i `uc ]
+[; ;Tick-PIC16.c: 62: tickbuffer[0] = TMR1L;
+"62
+[e = *U + &U _tickbuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux _TMR1L ]
+[; ;Tick-PIC16.c: 63: tickbuffer[1] = TMR1H;
+"63
+[e = *U + &U _tickbuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux _TMR1H ]
+[; ;Tick-PIC16.c: 65: *((uint32_t*) & tickbuffer[2]) = tickcnt;
+"65
+[e = *U -> &U *U + &U _tickbuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _tickbuffer `ui `ux `*ul _tickcnt ]
+"66
+}
+[; ;Tick-PIC16.c: 66: } while (PIR1bits.TMR1IF);
+[e $ != -> . . _PIR1bits 0 0 `i -> -> -> 0 `i `Vuc `i 96  ]
+[e :U 95 ]
+[; ;Tick-PIC16.c: 67: PIE1bits.TMR1IE = 1;
+"67
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;Tick-PIC16.c: 68: }
+"68
 [e :UE 93 ]
 }

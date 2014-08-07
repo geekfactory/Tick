@@ -1265,33 +1265,103 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern void _delay(unsigned long);
 
-# 4 "../Compiler.h"
-typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+# 13 "/Applications/microchip/xc8/v1.21/include/stdint.h"
+typedef signed char int8_t;
 
+# 20
+typedef signed int int16_t;
 
-typedef void VOID;
-typedef char CHAR8;
-typedef unsigned char UCHAR8;
+# 28
+typedef signed short long int int24_t;
 
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned long DWORD;
-typedef unsigned long long QWORD;
+# 36
+typedef signed long int int32_t;
 
-typedef signed char CHAR;
-typedef signed short int SHORT;
-typedef signed long LONG;
-typedef signed long long LONGLONG;
-
-typedef unsigned char PORTBASE;
-
-# 28 "../Tick.h"
-void tick_init();
-
-# 40
-DWORD tick_get();
+# 43
+typedef unsigned char uint8_t;
 
 # 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 51 "../Tick.h"
+void tick_init();
+
+# 63
+uint32_t tick_get();
+
+# 72
 void tick_update();
 
 
@@ -1309,7 +1379,7 @@ void tick_update();
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
 
-void main( )
+void main()
 {
 ANSEL = 0x00;
 TRISA = 0xFE;
@@ -1317,17 +1387,17 @@ TRISB = 0xFF;
 
 
 
-DWORD last_time = 0;
+uint32_t last_time = 0;
 
 
-tick_init( );
+tick_init();
 
 
-for(;; ) {
+for (;;) {
 
-if( tick_get( ) - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull)) / 2 ) {
+if (tick_get() - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull)) / 2) {
 
-last_time = tick_get( );
+last_time = tick_get();
 
 PORTAbits.RA0 ^= 1;
 }
@@ -1337,10 +1407,10 @@ PORTAbits.RA0 ^= 1;
 }
 
 # 67
-void interrupt isr( void )
+void interrupt isr(void)
 {
 
-tick_update( );
+tick_update();
 
 }
 

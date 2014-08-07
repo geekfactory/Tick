@@ -5,7 +5,7 @@ Linker command line:
 --edf=/Applications/microchip/xc8/v1.21/dat/en_msgs.txt -cs \
   -h+dist/default/production/tick-demo-PIC16.X.production.sym \
   --cmf=dist/default/production/tick-demo-PIC16.X.production.cmf -z -Q16F88 \
-  -o/tmp/cgtxpfGLM \
+  -o/tmp/cgtyzgZOZ \
   -Mdist/default/production/tick-demo-PIC16.X.production.map -E1 -ver=XC8 \
   -ACONST=00h-0FFhx16 -ACODE=00h-07FFhx2 -ASTRCODE=00h-0FFFh \
   -AENTRY=00h-0FFhx16 -ASTRING=00h-0FFhx16 -ACOMMON=070h-07Fh \
@@ -17,7 +17,7 @@ Linker command line:
   -pfunctab=CODE -ACONFIG=02007h-02008h -pconfig=CONFIG -DCONFIG=2 \
   -AIDLOC=02000h-02003h -pidloc=IDLOC -DIDLOC=2 -AEEDATA=00h-0FFh/02100h \
   -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 \
-  -DENTRY=2 -k /tmp/cgtG5nKSY.obj \
+  -DENTRY=2 -k /tmp/cgtA0HxfE.obj \
   dist/default/production/tick-demo-PIC16.X.production.obj 
 
 Object code version is 3.11
@@ -27,7 +27,7 @@ Machine type is 16F88
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtG5nKSY.obj
+/tmp/cgtA0HxfE.obj
                 end_init                             11       11        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             2007     2007        2     400E       0
@@ -314,7 +314,7 @@ Total ram usage:        8 bytes
 
  *************** function _tick_get *****************
  Defined at:
-		line 25 in file "../Tick-PIC16.c"
+		line 42 in file "../Tick-PIC16.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -344,7 +344,7 @@ Total ram usage:        4 bytes
 
  *************** function _tick_read_internal *****************
  Defined at:
-		line 40 in file "../Tick-PIC16.c"
+		line 56 in file "../Tick-PIC16.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -374,7 +374,7 @@ Total ram usage:        1 bytes
 
  *************** function _tick_init *****************
  Defined at:
-		line 11 in file "../Tick-PIC16.c"
+		line 28 in file "../Tick-PIC16.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -434,7 +434,7 @@ Total ram usage:        4 bytes
 
  *************** function _tick_update *****************
  Defined at:
-		line 31 in file "../Tick-PIC16.c"
+		line 48 in file "../Tick-PIC16.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type

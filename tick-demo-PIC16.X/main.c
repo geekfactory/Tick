@@ -41,14 +41,14 @@ void main()
 
 	// We operate on 32 bit ints
 	// unsigned int last_time = 0;
-	DWORD last_time = 0;
+	uint32_t last_time = 0;
 
 	// Initialize time count facilities
 	tick_init();
 
 	// Main loop
 	for (;;) {
-		// Check if more than one second (TICK_SECOND) has elapsed
+		// Check if more than half second (TICK_SECOND/2) has elapsed
 		if (tick_get() - last_time >= TICK_SECOND / 2) {
 			// Store the last time we toggled the led
 			last_time = tick_get();
@@ -56,7 +56,7 @@ void main()
 			PORTAbits.RA0 ^= 1;
 		}
 
-		// Perform other tasks here
+		// Perform other tasks here inside the main loop
 	}
 }
 

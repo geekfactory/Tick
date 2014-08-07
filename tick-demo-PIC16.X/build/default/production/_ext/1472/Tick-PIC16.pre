@@ -1265,36 +1265,106 @@ extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsi
 #pragma intrinsic(_delay)
 extern void _delay(unsigned long);
 
-# 4 "../Compiler.h"
-typedef enum _BOOL { FALSE = 0, TRUE } BOOL;
+# 13 "/Applications/microchip/xc8/v1.21/include/stdint.h"
+typedef signed char int8_t;
 
+# 20
+typedef signed int int16_t;
 
-typedef void VOID;
-typedef char CHAR8;
-typedef unsigned char UCHAR8;
+# 28
+typedef signed short long int int24_t;
 
-typedef unsigned char BYTE;
-typedef unsigned short int WORD;
-typedef unsigned long DWORD;
-typedef unsigned long long QWORD;
+# 36
+typedef signed long int int32_t;
 
-typedef signed char CHAR;
-typedef signed short int SHORT;
-typedef signed long LONG;
-typedef signed long long LONGLONG;
-
-typedef unsigned char PORTBASE;
-
-# 28 "../Tick.h"
-void tick_init();
-
-# 40
-DWORD tick_get();
+# 43
+typedef unsigned char uint8_t;
 
 # 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 51 "../Tick.h"
+void tick_init();
+
+# 63
+uint32_t tick_get();
+
+# 72
 void tick_update();
 
-# 4 "../Tick-PIC16.c"
+# 21 "../Tick-PIC16.c"
 static volatile unsigned long tickcnt = 0;
 
 static unsigned char tickbuffer[6];
@@ -1315,25 +1385,23 @@ INTCONbits.PEIE = 1;
 T1CON = 0x31;
 }
 
-DWORD tick_get()
+uint32_t tick_get()
 {
 tick_read_internal();
-return *((DWORD *)&tickbuffer[0]);
+return *((uint32_t *) & tickbuffer[0]);
 }
 
 void tick_update()
 {
-if( PIR1bits.TMR1IF )
-{
-tickcnt ++;
+if (PIR1bits.TMR1IF) {
+tickcnt++;
 PIR1bits.TMR1IF = 0;
 }
 }
 
 static void tick_read_internal()
 {
-do
-{
+do {
 PIE1bits.TMR1IE = 1;
 asm("nop");
 PIE1bits.TMR1IE = 0;
@@ -1341,7 +1409,7 @@ PIE1bits.TMR1IE = 0;
 tickbuffer[0] = TMR1L;
 tickbuffer[1] = TMR1H;
 
-*((DWORD*) &tickbuffer[2] ) = tickcnt;
-} while( PIR1bits.TMR1IF );
+*((uint32_t*) & tickbuffer[2]) = tickcnt;
+} while (PIR1bits.TMR1IF);
 PIE1bits.TMR1IE = 1;
 }
