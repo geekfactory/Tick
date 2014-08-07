@@ -38,10 +38,10 @@ void tick_init()
 	T1CON = 0x31;
 }
 
-DWORD tick_get()
+uint32_t tick_get()
 {
 	tick_read_internal();
-	return *((DWORD *) & tickbuffer[0]);
+	return *((uint32_t *) & tickbuffer[0]);
 }
 
 void tick_update()
@@ -62,7 +62,7 @@ static void tick_read_internal()
 		tickbuffer[0] = TMR1L;
 		tickbuffer[1] = TMR1H;
 
-		*((DWORD*) & tickbuffer[2]) = tickcnt;
+		*((uint32_t*) & tickbuffer[2]) = tickcnt;
 	} while (PIR1bits.TMR1IF);
 	PIE1bits.TMR1IE = 1;
 }

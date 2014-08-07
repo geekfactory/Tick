@@ -39,35 +39,32 @@ void tick_init()
 	T1CONbits.TON = 1;
 }
 
-DWORD tick_get()
+uint32_t tick_get()
 {
 	tick_read_internal();
-	return *((unsigned long *) &tickbuffer[0]);
+	return *((uint32_t *) &tickbuffer[0]);
 }
 
 static void tick_read_internal()
 {
 	do {
-		DWORD xTempTicks;
+		uint32_t xTempTicks;
 
 		IEC0bits.T1IE = 1; // Enable interrupt
 		Nop();
 		IEC0bits.T1IE = 0; // Disable interrupt
 
-		// Get low 2 bytes
-		((WORD*) tickbuffer)[0] = TMR1;
+		((uint32_t*) tickbuffer)[0] = TMR1;
 
-		// Correct corner case where interrupt increments byte[4+] but 
-		// TMR1 hasn't rolled over to 0x0000 yet
 		xTempTicks = tickcnt;
-		if (((WORD*) tickbuffer)[0] == 0xFFFFu)
+		if (((uint32_t *) tickbuffer)[0] == 0xFFFFu)
 			xTempTicks--;
 
 		// Get high 4 bytes
-		tickbuffer[2] = ((BYTE *) & xTempTicks)[0];
-		tickbuffer[3] = ((BYTE *) & xTempTicks)[1];
-		tickbuffer[4] = ((BYTE *) & xTempTicks)[2];
-		tickbuffer[5] = ((BYTE *) & xTempTicks)[3];
+		tickbuffer[2] = ((uint8_t *) & xTempTicks)[0];
+		tickbuffer[3] = ((uint8_t *) & xTempTicks)[1];
+		tickbuffer[4] = ((uint8_t *) & xTempTicks)[2];
+		tickbuffer[5] = ((uint8_t *) & xTempTicks)[3];
 	} while (IFS0bits.T1IF);
 	IEC0bits.T1IE = 1; // Enable interrupt
 }
