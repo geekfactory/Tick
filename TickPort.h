@@ -1,4 +1,4 @@
-/*	Library for time management on various microcontrollers
+/*	Simple Delay Routines
 	Copyright (C) 2014 Jesus Ruben Santa Anna Zamudio.
 
 	This program is free software: you can redistribute it and/or modify
@@ -23,6 +23,7 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include "Config.h"
 #define TICKS_PER_SECOND		((CONFIG_TIMING_MAIN_CLOCK + 128ull)/8ull)	// Timer with 1:8 prescaler
 
 #elif defined(PLIB_PIC18)

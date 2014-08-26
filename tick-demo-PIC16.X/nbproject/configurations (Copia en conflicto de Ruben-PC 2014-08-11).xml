@@ -6,7 +6,6 @@
                    projectFiles="true">
       <itemPath>../Tick.h</itemPath>
       <itemPath>../TickPort.h</itemPath>
-      <itemPath>project_conf/Config.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,7 +37,7 @@
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>1.12</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -61,7 +60,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="define-macros" value="PLIB_PIC16"/>
-        <property key="extra-include-directories" value="project_conf"/>
+        <property key="extra-include-directories" value=""/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

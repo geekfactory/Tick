@@ -1,33 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"479 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"479 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _T1CON `Vuc ~T0 @X0 0 e@16 ]
 "467
 [v _TMR1L `Vuc ~T0 @X0 0 e@14 ]
 "473
 [v _TMR1H `Vuc ~T0 @X0 0 e@15 ]
-"379
 [s S16 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S16 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"378
 [u S15 `S16 1 ]
 [n S15 . . ]
 "389
 [v _PIR1bits `VS15 ~T0 @X0 0 e@12 ]
-"1180
 [s S49 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S49 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
-"1179
 [u S48 `S49 1 ]
 [n S48 . . ]
 "1190
 [v _PIE1bits `VS48 ~T0 @X0 0 e@140 ]
-"302
 [s S13 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S13 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE GIE ]
-"312
 [s S14 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
 [n S14 . . INTF . INTE ]
-"301
 [u S12 `S13 1 `S14 1 ]
 [n S12 . . . ]
 "319
@@ -35,7 +28,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "25 ../Tick-PIC16.c
 [v _tick_read_internal `(v ~T0 @X0 0 sf ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
-"46 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"46 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f88.h: 50: extern volatile unsigned char TMR0 @ 0x001;

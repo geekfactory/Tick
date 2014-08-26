@@ -14,7 +14,6 @@
  * COMPILER/COMPILADOR: Microchip XC8 http://www.microchip.com/compilers
  *
  ********************************************************************************/
-#define CONFIG_TIMING_MAIN_CLOCK 1000000
 #include <xc.h>			// Encabezado para el compilador XC8
 #include "../Tick.h"
 
@@ -55,7 +54,6 @@ void main()
 			// and do it...
 			PORTAbits.RA0 ^= 1;
 		}
-
 		// Perform other tasks here inside the main loop
 	}
 }
