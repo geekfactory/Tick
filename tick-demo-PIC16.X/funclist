@@ -1,8 +1,8 @@
 _tick_init: CODE, 202 0 16
-_tick_get: CODE, 183 0 19
-_main: CODE, 32 0 100
-__initialization: CODE, 19 0 10
+_tick_get: CODE, 181 0 21
+_main: CODE, 19 0 106
+__initialization: CODE, 234 0 10
 _isr: CODE, 218 0 16
-_tick_read_internal: CODE, 132 0 31
-_tick_update: CODE, 163 0 20
-Total: 212
+_tick_read_internal: CODE, 125 0 33
+_tick_update: CODE, 158 0 23
+Total: 225

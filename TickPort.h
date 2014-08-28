@@ -13,6 +13,9 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
  */
 
 #ifndef TICKPORT_H
@@ -23,19 +26,22 @@
 
 #include <xc.h>
 #include <stdint.h>
-#define TICKS_PER_SECOND		((CONFIG_TIMING_MAIN_CLOCK + 128ull)/8ull)	// Timer with 1:8 prescaler
+#include "Config.h"
+#define TICKS_PER_SECOND	((CONFIG_TIMING_MAIN_CLOCK + 128ull)/8ull)	// Timer with 1:8 prescaler
 
 #elif defined(PLIB_PIC18)
 
 #include <xc.h>
 #include <stdint.h>
-#define TICKS_PER_SECOND		((CONFIG_TIMING_MAIN_CLOCK + 128ull)/256ull)	// Timer with 1:256 prescaler
+#include "Config.h"
+#define TICKS_PER_SECOND	((CONFIG_TIMING_MAIN_CLOCK + 128ull)/256ull)	// Timer with 1:256 prescaler
 
 #elif defined(PLIB_PIC24)
 
 #include <xc.h>
 #include <stdint.h>
-#define TICKS_PER_SECOND		((CONFIG_TIMING_MAIN_CLOCK + 128ull)/256ull)	// Timer with 1:256 prescaler
+#include "Config.h"
+#define TICKS_PER_SECOND	((CONFIG_TIMING_MAIN_CLOCK + 128ull)/256ull)	// Timer with 1:256 prescaler
 
 #endif
 

@@ -1,27 +1,25 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"1688 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"1688 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _ANSEL `Vuc ~T0 @X0 0 e@155 ]
 "1052
 [v _TRISA `Vuc ~T0 @X0 0 e@133 ]
 "1113
 [v _TRISB `Vuc ~T0 @X0 0 e@134 ]
-"51 ../Tick.h
+"54 ../Tick.h
 [v _tick_init `(v ~T0 @X0 0 ef ]
-"63
+"66
 [v _tick_get `(ul ~T0 @X0 0 ef ]
-"161 /Applications/microchip/xc8/v1.21/include/pic16f88.h
 [s S7 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S7 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"160
 [u S6 `S7 1 ]
 [n S6 . . ]
-"172
+"172 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [v _PORTAbits `VS6 ~T0 @X0 0 e@5 ]
-"72 ../Tick.h
+"75 ../Tick.h
 [v _tick_update `(v ~T0 @X0 0 ef ]
 [; ;pic16f88.h: 44: extern volatile unsigned char INDF @ 0x000;
-"46 /Applications/microchip/xc8/v1.21/include/pic16f88.h
+"46 C:\Program Files (x86)\Microchip\xc8\v1.12\include\pic16f88.h
 [; ;pic16f88.h: 46: asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
 [; ;pic16f88.h: 50: extern volatile unsigned char TMR0 @ 0x001;
@@ -954,97 +952,97 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 205: typedef uint32_t uintmax_t;
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;Tick.h: 51: void tick_init();
-[; ;Tick.h: 63: uint32_t tick_get();
-[; ;Tick.h: 72: void tick_update();
-"23 main.c
+[; ;Tick.h: 54: void tick_init();
+[; ;Tick.h: 66: uint32_t tick_get();
+[; ;Tick.h: 75: void tick_update();
+"22 main.c
 [p x FOSC=XT ]
-"24
+"23
 [p x WDTE=OFF ]
-"25
+"24
 [p x PWRTE=OFF ]
-"26
+"25
 [p x MCLRE=ON ]
-"27
+"26
 [p x BOREN=OFF ]
-"28
+"27
 [p x LVP=OFF ]
-"29
+"28
 [p x CPD=OFF ]
-"30
+"29
 [p x WRT=OFF ]
-"31
+"30
 [p x CCPMX=RB0 ]
-"32
+"31
 [p x CP=OFF ]
-"33
+"32
 [p x FCMEN=OFF ]
-"34
+"33
 [p x IESO=OFF ]
-"37
+"36
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 36: void main()
-[; ;main.c: 37: {
+[; ;main.c: 35: void main()
+[; ;main.c: 36: {
 [e :U _main ]
 [f ]
-[; ;main.c: 38: ANSEL = 0x00;
-"38
+[; ;main.c: 37: ANSEL = 0x00;
+"37
 [e = _ANSEL -> -> 0 `i `uc ]
-[; ;main.c: 39: TRISA = 0xFE;
-"39
+[; ;main.c: 38: TRISA = 0xFE;
+"38
 [e = _TRISA -> -> 254 `i `uc ]
-[; ;main.c: 40: TRISB = 0xFF;
-"40
+[; ;main.c: 39: TRISB = 0xFF;
+"39
 [e = _TRISB -> -> 255 `i `uc ]
-"44
+"42
 [v _last_time `ul ~T0 @X0 1 a ]
-[; ;main.c: 44: uint32_t last_time = 0;
+[; ;main.c: 42: uint32_t last_time = 0;
 [e = _last_time -> -> -> 0 `i `l `ul ]
-[; ;main.c: 47: tick_init();
-"47
+[; ;main.c: 45: tick_init();
+"45
 [e ( _tick_init ..  ]
-[; ;main.c: 50: for (;;) {
-"50
+[; ;main.c: 48: for (;;) {
+"48
 {
 [e :U 90 ]
 {
-[; ;main.c: 52: if (tick_get() - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull)) / 2) {
-"52
+[; ;main.c: 50: if (tick_get() - last_time >= ((unsigned long long)((1000000 + 128ull)/8ull)) / 2) {
+"50
 [e $ ! >= - ( _tick_get ..  _last_time / / + -> -> 1000000 `l `ul -> 128 `ul -> 8 `ul -> -> -> 2 `i `l `ul 93  ]
 {
-[; ;main.c: 54: last_time = tick_get();
-"54
+[; ;main.c: 52: last_time = tick_get();
+"52
 [e = _last_time ( _tick_get ..  ]
-[; ;main.c: 56: PORTAbits.RA0 ^= 1;
-"56
+[; ;main.c: 54: PORTAbits.RA0 ^= 1;
+"54
 [e =^ . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"57
+"55
 }
 [e :U 93 ]
-"60
+"57
 }
+[; ;main.c: 55: }
 [; ;main.c: 57: }
-[; ;main.c: 60: }
 [e $U 90  ]
 [e :U 91 ]
 }
-[; ;main.c: 61: }
-"61
+[; ;main.c: 58: }
+"58
 [e :UE 89 ]
 }
-"68
+"65
 [v F1007 `(v ~T0 @X0 1 tf ]
 [v _isr `IF1007 ~T0 @X0 1 e ]
 {
-[; ;main.c: 67: void interrupt isr(void)
-[; ;main.c: 68: {
+[; ;main.c: 64: void interrupt isr(void)
+[; ;main.c: 65: {
 [e :U _isr ]
 [f ]
-[; ;main.c: 70: tick_update();
-"70
+[; ;main.c: 67: tick_update();
+"67
 [e ( _tick_update ..  ]
-[; ;main.c: 72: }
-"72
+[; ;main.c: 69: }
+"69
 [e :UE 94 ]
 }

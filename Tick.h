@@ -13,6 +13,9 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
  */
 
 /**

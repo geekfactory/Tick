@@ -13,6 +13,9 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
  */
 
 #include "Tick.h"
@@ -35,7 +38,6 @@ void tick_init()
 	INTCONbits.TMR0IE = 1;
 
 	// Timer0 on, 16-bit, internal timer, 1:256 prescaler
-	//
 	T0CON = 0x87;
 }
 

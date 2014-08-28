@@ -14,7 +14,6 @@
  * COMPILER/COMPILADOR: Microchip XC8 http://www.microchip.com/compilers
  *
  ********************************************************************************/
-#define CONFIG_TIMING_MAIN_CLOCK 1000000
 #include <xc.h>			// Encabezado para el compilador XC8
 #include "../Tick.h"
 
@@ -40,7 +39,6 @@ void main()
 	TRISB = 0xFF;
 
 	// We operate on 32 bit ints
-	// unsigned int last_time = 0;
 	uint32_t last_time = 0;
 
 	// Initialize time count facilities
@@ -55,7 +53,6 @@ void main()
 			// and do it...
 			PORTAbits.RA0 ^= 1;
 		}
-
 		// Perform other tasks here inside the main loop
 	}
 }
