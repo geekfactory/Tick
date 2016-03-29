@@ -43,9 +43,15 @@
 #include "Config.h"
 #define TICKS_PER_SECOND	((CONFIG_TIMING_MAIN_CLOCK + 128ull)/256ull)	// Timer with 1:256 prescaler
 
+#elif defined(ARDUINO)
+
+#include <Arduino.h>
+#include <stdint.h>
+#define TICKS_PER_SECOND		1000ull
+
+#define tick_get() millis()
+
 #endif
-
-
 
 #endif
 // End of Header file
